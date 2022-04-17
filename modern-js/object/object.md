@@ -1,6 +1,7 @@
 # Object
 
 ## create object
+
 ```js
 // "객체 생성자" 문법
 let coins = new Object();
