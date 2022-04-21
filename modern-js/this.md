@@ -83,7 +83,7 @@ class 역할을 할 함수와 `new` 가 만나면 자동적으로 일어나는 �
 > Note: `new` 를 사용하지 않을 시에 `this` 에 `global object` 가 할당된다
 ```js
 function Coin(name, price) {
-    let this = {};
+    this = {};
 
     this.name = name;
     this.price = price;
