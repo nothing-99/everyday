@@ -80,6 +80,7 @@ class 역할을 할 함수와 `new` 가 만나면 자동적으로 일어나는 �
 2. 해당 함수의 코드들이 실행된다 :: this 객체에 프로퍼티로 추가된다
 3. `return this;` 가 실행된다
 
+> Note: `new` 를 사용하지 않을 시에 `this` 에 `global object` 가 할당된다
 ```js
 function Coin(name, price) {
     let this = {};
@@ -119,11 +120,13 @@ btc.showMethodThis();
 
 메서드 내부에 선언된 함수가 메서드와 동일한 this 값을 가지기 위해서 어떻게 해야할까? (아직 공부를 덜해서 하면서 추가할 예정)
 - arrow function : arrow function 은 별도로 this 객체를 가지지 않기 때문에 외부 스코프의 this 를 참조한다.
+- function parameter : this 를 argument 로 넘겨준다
 
 ```js
+// arrow function
 let btc = {
     name: 'bitcoin',
-    price: 100000000000000,
+    price: 100000000000000000,
     showPrice: function() { console.log(this.price); },
     showMethodThis: function() { 
         // first
@@ -139,6 +142,29 @@ let btc = {
 btc.showMethodThis();
 // btc object
 // global object
+```
+
+```js
+// function argument
+let btc = {
+    name: 'bitcoin',
+    price: 100000000000000000,
+    showPrice: function() { console.log(this.price); },
+    showMethodThis: function() { 
+        // first
+        console.log(this);
+
+        let showFuncThis = function(that) { console.log(that); };
+        
+        // second
+        let that = this;
+        showFuncThis(that);
+    },
+};
+
+btc.showMethodThis();
+// btc object
+// btc object
 ```
 ## 출처
 - https://wormwlrm.github.io/2019/03/04/You-should-know-JavaScript-this.html.html
