@@ -1,11 +1,11 @@
 # Method of Array
-- [arr.push(...items)](##push)
-- [arr.pop()](##pop)
-- [arr.shift()](##shift)
-- [arr.unshift(...items)](##unshift)
-- [arr.splice](##splice)
-- [arr.slice](##slice)
-- [arr.concat](##concat)
+- [arr.push(...items)](#push)
+- [arr.pop()](#pop)
+- [arr.shift()](#shift)
+- [arr.unshift(...items)](#unshift)
+- [arr.splice](#splice)
+- [arr.slice](#slice)
+- [arr.concat](#concat)
 
 ## push
 ## pop
