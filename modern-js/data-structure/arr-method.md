@@ -3,9 +3,9 @@
 - [arr.pop()](#arr.pop())
 - [arr.shift()](#arr.shift())
 - [arr.unshift(...items)](#arr.unshift(...items))
-- [arr.splice](#arr.splice)
-- [arr.slice](#arr.slice)
-- [arr.concat](#arr.concat)
+- [arr.splice](#arr-splice)
+- [arr.slice](#arr-slice)
+- [arr.concat](#arr-concat)
 
 ## arr.push(...items)
 ## arr.pop()
