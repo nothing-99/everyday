@@ -1,17 +1,17 @@
 # Method of Array
-- [arr.push(...items)](#arr.push(...items))
-- [arr.pop()](#arr.pop())
-- [arr.shift()](#arr.shift())
-- [arr.unshift(...items)](#arr.unshift(...items))
-- [arr.splice](#arr-splice)
-- [arr.slice](#arr-slice)
-- [arr.concat](#arr-concat)
+- [arr.push(...items)](##push)
+- [arr.pop()](##pop)
+- [arr.shift()](##shift)
+- [arr.unshift(...items)](##unshift)
+- [arr.splice](##splice)
+- [arr.slice](##slice)
+- [arr.concat](##concat)
 
-## arr.push(...items)
-## arr.pop()
-## arr.shift()
-## arr.unshift(...items)
-## arr.splice
+## push
+## pop
+## shift
+## unshift
+## splice
 ```js
 arr.splice(index[, deleteCount, ...elements])
 ```
@@ -65,7 +65,7 @@ coins.splice(3, 2, '1inch', 'doge', 'etc');
 > [Note] 음수 index 도 사용가능,, 원리는 똑같음.
 
 
-## arr.slice
+## slice
 ```js
 arr.slice([start], [end]);
 ```
@@ -90,7 +90,7 @@ console.log(copy === coins); // false
 > [Note] arr.slice() 를 통해 전체 배열의 복사본을 얻을 수 있다
 > 복사본이라 동일한 elements 를 가지지만 각각의 배열이 다른 메모리 공간에 저장되어 있다. 그렇기에 === 연산을 수행하면 false 가 나온다.
 
-## arr.concat
+## concat
 ```js
 arr.concat(arg1, arg2...);
 ```
