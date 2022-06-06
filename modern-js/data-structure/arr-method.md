@@ -1,16 +1,17 @@
 # Method of Array
-- [arr.push(...items)](#arr.push(...items))
-- [arr.pop()](#arr.pop())
-- [arr.shift()](#arr.shift())
-- [arr.unshift(...items)](#arr.unshift(...items))
-- [arr.splice](#arr.splice())
-- [arr.slice](#arr.slice())
+- [arr.push(...items)](#push)
+- [arr.pop()](#pop)
+- [arr.shift()](#shift)
+- [arr.unshift(...items)](#unshift)
+- [arr.splice](#splice)
+- [arr.slice](#slice)
+- [arr.concat](#concat)
 
-## arr.push(...items)
-## arr.pop()
-## arr.shift()
-## arr.unshift(...items)
-## arr.splice()
+## push
+## pop
+## shift
+## unshift
+## splice
 ```js
 arr.splice(index[, deleteCount, ...elements])
 ```
@@ -64,7 +65,7 @@ coins.splice(3, 2, '1inch', 'doge', 'etc');
 > [Note] 음수 index 도 사용가능,, 원리는 똑같음.
 
 
-## arr.slice()
+## slice
 ```js
 arr.slice([start], [end]);
 ```
@@ -77,6 +78,64 @@ let coins = ['btc', 'eth', 'etc', 'stx', 'xlm'];
 let scams = coins.slice(1);
 console.log(scams); // ['eth', 'etc', 'stx', 'xlm'];
 
-let realScams = scams.slice(1, 4);
-console.log(realScams);
+let realScams = scams.slice(1, 3);
+console.log(realScams); // ['etc', 'stx']
+
+
+let copy = coins.slice();
+// argument 로 아무것도 주지 않으면 전체 배열을 복사할 수 있다
+// copy : ['btc', 'eth', 'etc', 'stx', 'xlm']
+console.log(copy === coins); // false
 ```
+> [Note] arr.slice() 를 통해 전체 배열의 복사본을 얻을 수 있다
+> 복사본이라 동일한 elements 를 가지지만 각각의 배열이 다른 메모리 공간에 저장되어 있다. 그렇기에 === 연산을 수행하면 false 가 나온다.
+
+## concat
+```js
+arr.concat(arg1, arg2...);
+```
+- arg 는 각각의 element 가 될 수 있고 array 가 올 수 있다
+- concat 은 arr의 elements 와 arg 들의 각각의 elements 를 합친 새로운 array 를 반환
+- arg 에 array 형이 오면 그 안의 각각의 요소들을 합친다. (배열 자체를 하나의 요소로 보는 것이 아니라)
+
+```js
+let coins = ['btc'];
+
+let scams = ['eth', 'xrp', 'xlm'];
+
+console.log( coins.concat('eth') );
+// ['btc', 'eth']
+
+console.log( coins.concat('eth', 'xrp', ['xlm', '1inch']) );
+// ['btc', 'eth', 'xrp', 'xlm', '1inch']
+
+console.log( coins.concat('eth', 'xlm', scams) );
+// ['btc', 'eth', 'xlm', 'eth', 'xrp', 'xlm']
+```
+
+concat 의 인자로 **유사 배열 객체** 가 오면 배열처럼 동작할까?
+-> 특수한 프로퍼티를 추가하면 가능하다.
+
+```js
+let arr = [1, 2];
+let arrayLike = {
+  0: 'zero',
+  1: 'one',
+  length: 2,
+};
+
+console.log( arr.concat(arrayLike) );
+// [1, 2, [object Object]]
+// 유사 배열 객체를 1개의 element 로 취급한다
+
+arrayLike[Symbol.isConcatSpreadable] = true;
+// special property : [Symbol.isConcatSpreadable]
+
+console.log( arr.concat(arrayLike) );
+// [1, 2, 'zero', 'one']
+```
+
+> [Note] Symbol.isConcatSpreadable
+> concat 은 해당 프로퍼티를 가지고 있는 유사배열객체를 배열로 취급한다
+
+
