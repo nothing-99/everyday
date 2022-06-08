@@ -1,3 +1,5 @@
-const str = `i can get slimes from mutant monkeys and bananas from bitcoin monkeys`;
+var x ;
 
-console.log(str.search(/bitcoin|mutant/g));
+x = 1;
+
+console.log(x);
